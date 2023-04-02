@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, pagination
 from django.db.models import Q
 from .models import House, Booking
 from .serializers import HouseSerializer, BookingSerializer
@@ -8,6 +8,7 @@ from .serializers import HouseSerializer, BookingSerializer
 class HouseList(generics.ListAPIView):
     serializer_class = HouseSerializer
     permission_classes = [permissions.AllowAny]
+    pagination_class = pagination.PageNumberPagination
 
     def get_queryset(self):
         query_params = self.request.query_params
