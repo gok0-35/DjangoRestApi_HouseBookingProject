@@ -23,7 +23,7 @@ class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f'{self.guest_name} - {self.house}'
+        return f'{self.guest_names} - {self.house}'
     
     def save(self, *args, **kwargs):
         # Check if the house is available for the selected dates
