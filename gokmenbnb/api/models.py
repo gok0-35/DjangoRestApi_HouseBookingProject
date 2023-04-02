@@ -19,7 +19,7 @@ class Booking(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     guests = models.IntegerField(default=1)
-    guest_name = models.CharField(max_length=100)
+    guest_names = models.TextField(default='No guest names provided')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
